@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: #FFF;
+            font-family: "Fira sans", sans-serif;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            padding: 2rem 1rem;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #6B7280;
+            margin-bottom: 1rem;
+        }
+
+        #new-task-form {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        input[type="text"] {
+            padding: 1rem;
+            font-size: 1rem;
+        }
+
+        #new-task-submit {
+            color: green;
+            font-size: 1rem;
+            font-weight: 700;
+            /*background-image: linear-gradient(to right, #EC4899, #8B5CF6);*/
+            cursor: pointer;
+            transition: 0.4s;
+            border: none;
+            background-color: white;
+        }
+
+        /*I #new-task-submit:hover {
+            opacity: 0.8;
+        }
+
+        #new-task-submit:active {
+            opacity: 0.6;
+        } */
+
+        main {
+            flex: 1 1 0%;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .task-list {
+            padding: 1rem;
+        }
+
+        .task-list h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #6B7280;
+            margin-bottom: 1rem;
+        }
+
+        #tasks {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .task {
+            display: flex;
+            justify-content: space-between;
+            background-color: #111827;
+            padding: 1rem;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+
+        .task .content {
+            flex: 1 1 0%;
+        }
+
+        .task .content .text {
+            color: #090909;
+            font-size: 1.125rem;
+            width: 94%;
+            display: block;
+            transition: 0.4s;
+        }
+
+        .task .content .text:not(:read-only) {
+            color: #EC4899;
+        }
+
+        .task .actions {
+            display: flex;
+            margin: 0 -0.5rem;
+        }
+
+        .task .actions button {
+            cursor: pointer;
+            margin: 0 0.5rem;
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: 0.4s;
+            padding: 0.5rem 1rem;
+            border: none;
+            outline: none;
+        }
+
+        .task .actions button:hover {
+            opacity: 0.8;
+        }
+
+        .task .actions button:active {
+            opacity: 0.6;
+        }
+
+        .task .actions .edit {
+            background-image: linear-gradient(to right, #EC4899, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .task .actions .delete {
+            color: #EF4444;
+        }
+
+        .task .actions .delete:hover {
+            background-color: #EF4444;
+            color: white;
+        }
+
+        .task .actions .delete:active {
+            opacity: 0.8;
+        }
+
+        #rmv {
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border: none;
+            outline: none;
+            color: #EF4444;
+            background-color: transparent;
+            transition: background-color 0.4s, color 0.4s;
+        }
+
+        #rmv:hover {
+            color: #FFF;
+            background-color: #EF4444;
+        }
+
+        #rmv:active {
+            opacity: 0.8;
+        }
+    </style>
+    <title>Task List</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>To-Do List</h1>
+        <form id="new-task-form">
+            <input type="text" name="new-task-input" id="new-task-input" placeholder="Enter your to-do here" />
+            <button type="submit" id="new-task-submit">Add task</button>
+            <button onclick="removeAll()" id="rmv">Remove All</button>
+
+        </form>
+    </header>
+
+    <main>
+        <section class="task-list">
+            <h2>Tasks</h2>
+            <h3 id="msg" style="color: #EF4444;">No tasks added...</h3>
+            <div id="tasks"></div>
+
+        </section>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
